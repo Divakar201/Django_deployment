@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'loginapps/base.html'%}
+{% block body_block %}
+<div class="jumbotron">
+  {%if registered %}
+  <h1>Thank you for registration</h1>
+  {%else%}
+  <form enctype="multipart/form-data" method="post">
+    <h1>Please fill out the form</h1>
+    {%csrf_token%}
+      {{userform.as_p}}
+      {{userportform.as_p}}
+    <input type="submit" class="btn btn-default" value="Register">
+  </form>
+  {% endif %}
+</div>
+{% endblock %}
